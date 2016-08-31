@@ -23,4 +23,4 @@ const server = new WebpackDevServer(compiler, {
   },
 });
 
-server.listen(3000, 'localhost');
+server.listen(8080, 'localhost');
