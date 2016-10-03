@@ -1,25 +1,27 @@
 import React from 'react';
 import { Router, hashHistory, Route, IndexRoute } from 'react-router';
 import App from './lib/components/App';
-import CardPage from './lib/components/CardPage';
+import Page from './lib/components/Page';
 import { render } from 'react-dom';
-import { getCards } from './init';
+import { getMenu } from './init';
 
 const connect = (state, Component) => (props) => (
   <Component {...state} {...props} />
 );
 
-const cards = getCards();
 
-const ConnectedApp = connect({ cards }, App);
-const ConnectedCardPage = connect({ cards }, CardPage);
+const menu = getMenu();
+// const cards = getCardsForPage(ns);
+
+const ConnectedApp = connect({ menu }, App);
+const ConnectedPage = connect({ menu }, Page);
 
 const routes = (
   <Route component={ConnectedApp} path="/">
-    <IndexRoute component={ConnectedCardPage} />
+    <IndexRoute component={ConnectedPage} />
     <Route
-        component={ConnectedCardPage}
-        path="/:ns"
+      component={ConnectedPage}
+      path="/:title"
     />
   </Route>
 );

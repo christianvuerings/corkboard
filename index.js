@@ -1,11 +1,12 @@
-import { registerCard, registerNamespace } from './init';
+import { registerCard, registerPage, registerGroup } from './init';
 import defcard from './lib/defcard';
 import React from 'react';
 import Markdown from './lib/components/Markdown';
 
 export {
-  registerNamespace as ns,
+  registerPage as page,
   registerCard,
+  registerGroup as group,
 };
 
 export function card(...args) {
