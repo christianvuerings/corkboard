@@ -22,7 +22,4 @@ App.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }).isRequired,
-  params: PropTypes.shape({
-    ns: PropTypes.string,
-  }).isRequired,
 };

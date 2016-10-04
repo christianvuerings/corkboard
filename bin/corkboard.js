@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 /* eslint-env node */
+/* eslint import/no-dynamic-require:0 */
 
 const path = require('path');
 const minimist = require('minimist');

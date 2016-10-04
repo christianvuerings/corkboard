@@ -1,11 +1,13 @@
+/* eslint-env browser */
+
 import React from 'react';
+import { render } from 'react-dom';
 import { Router, hashHistory, Route, IndexRoute } from 'react-router';
 import App from './lib/components/App';
 import Page from './lib/components/Page';
-import { render } from 'react-dom';
 import { getMenu } from './init';
 
-const connect = (state, Component) => (props) => (
+const connect = (state, Component) => props => (
   <Component {...state} {...props} />
 );
 

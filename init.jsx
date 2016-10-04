@@ -61,7 +61,9 @@ export function registerGroup(groupName, renderPages) {
 export function registerPage(title) {
   setState('pageTitle', title);
   if (state.currentlyInGroup && title in MENU) {
-    console.warn(`You have a group and page both named ${title}!`);
+    throw ({
+      message: `You have a group and page both named ${title}!`,
+    });
   }
 
   addPageToMenu(title);
