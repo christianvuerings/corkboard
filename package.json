@@ -66,5 +66,8 @@
   "eslintConfig": {
     "extends": "airbnb",
     "parser": "babel-eslint"
+  },
+  "jest": {
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(js|jsx)$"
   }
 }
