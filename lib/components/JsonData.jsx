@@ -1,3 +1,5 @@
+// @chrislloyd: This linter is disabled because this component is polymorphic.
+/* eslint react/forbid-prop-types:0 */
 import React, { PropTypes } from 'react';
 
 function Map(props) {
@@ -22,6 +24,10 @@ function Map(props) {
   );
 }
 
+Map.propTypes = {
+  map: PropTypes.object.isRequired,
+};
+
 function Arr(props) {
   const { arr } = props;
   const len = arr.length;
@@ -41,6 +47,10 @@ function Arr(props) {
   );
 }
 
+Arr.propTypes = {
+  arr: PropTypes.array.isRequired,
+};
+
 function Str(props) {
   const { str } = props;
   return (
@@ -48,12 +58,20 @@ function Str(props) {
   );
 }
 
+Str.propTypes = {
+  str: PropTypes.string.isRequired,
+};
+
 function Num(props) {
   const { number } = props;
   return (
     <span className="olive">{number}</span>
   );
 }
+
+Num.propTypes = {
+  number: PropTypes.number.isRequired,
+};
 
 export default function JsonData(props) {
   const { data } = props;

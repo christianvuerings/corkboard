@@ -1,5 +1,6 @@
+/* eslint react/no-unused-prop-types: 0 */
 import React, { PropTypes } from 'react';
-import { getCardsForPage } from '../../init.js';
+import { getCardsForPage } from '../../index';
 
 export default function Page(props) {
   const { params: { title } } = props;

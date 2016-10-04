@@ -1,4 +1,3 @@
-/* eslint react/no-danger:0 */
 import React, { PropTypes } from 'react';
 import marked, { Renderer } from 'marked';
 import highlightjs from 'highlight.js';
@@ -14,8 +13,10 @@ export default function Markdown({ text }) {
   const html = marked(text, { renderer });
 
   return (
-    <div className="sans-serif text-l dark-gray"
-        dangerouslySetInnerHTML={{ __html: html }} />
+    <div
+      className="sans-serif text-l dark-gray"
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
   );
 }
 

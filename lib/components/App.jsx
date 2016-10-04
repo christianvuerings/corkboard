@@ -17,9 +17,7 @@ export default function App(props) {
 }
 
 App.propTypes = {
-  menu: PropTypes.any.isRequired,
+  menu: PropTypes.shape({}).isRequired,
   children: PropTypes.node,
-  location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
-  }).isRequired,
+  location: PropTypes.shape({}).isRequired,
 };

@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node devServer.js",
-    "lint": "eslint . --ext js",
+    "lint": "eslint . --ext js --ext jsx",
     "test": "jest"
   },
   "devDependencies": {

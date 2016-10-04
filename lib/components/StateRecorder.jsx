@@ -1,3 +1,5 @@
+// @chrislloyd: This linter is disabled because initialState is polymorphic.
+/* eslint react/forbid-prop-types:0 */
 import React, { Component, PropTypes } from 'react';
 import atom from '../atom';
 import Icon from './Icon';
@@ -8,13 +10,13 @@ function Control(props) {
   const iconColor = pred ? color : 'silver';
   if (pred) {
     return (
-      <a
+      <button
         className={['block col-2 center', iconColor].join(' ')}
         onClick={onClick}
         style={{ cursor: 'pointer' }}
       >
         {children}
-      </a>
+      </button>
     );
   }
   return <div className={['col-2 center', iconColor].join(' ')}>{children}</div>;
@@ -127,14 +129,12 @@ export default class StateRecorder extends Component {
 
 StateRecorder.propTypes = {
   fn: PropTypes.func.isRequired,
-  historyLimit: PropTypes.number.isRequired,
   initialState: PropTypes.any.isRequired,
   showHistory: PropTypes.bool.isRequired,
   showState: PropTypes.bool.isRequired,
 };
 
 StateRecorder.defaultProps = {
-  historyLimit: 100,
   showHistory: false,
   showState: false,
 };

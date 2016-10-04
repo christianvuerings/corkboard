@@ -1,3 +1,4 @@
+/* eslint react/no-unused-prop-types: 0 */
 import React, { PropTypes } from 'react';
 import cs from 'classnames';
 import StateRecorder from './StateRecorder';
@@ -6,18 +7,24 @@ export default function Card(props) {
   const {
     name,
     parts,
-    options,
+    options: {
+      heading,
+      history,
+      initialState,
+      inspectData,
+      stacked,
+    },
   } = props;
 
-  const partsOrStateRecorders = parts.map(part => {
+  const partsOrStateRecorders = parts.map((part) => {
     if (typeof part === 'function') {
       return (
         <StateRecorder
           fn={part}
           historyLimit={100}
-          initialState={options.initialState}
-          showHistory={options.history}
-          showState={options.inspectData}
+          initialState={initialState}
+          showHistory={history}
+          showState={inspectData}
         />
       );
     }
@@ -26,8 +33,8 @@ export default function Card(props) {
 
   return (
     <div>
-      {options.heading && <h2 className="display-s dark-gray mt0 py2 mb2 border-bottom">{name}</h2>}
-      <div className={cs('mxn2', 'py2', { 'md-flex': !options.stacked })}>
+      {heading && <h2 className="display-s dark-gray mt0 py2 mb2 border-bottom">{name}</h2>}
+      <div className={cs('mxn2', 'py2', { 'md-flex': !stacked })}>
         {partsOrStateRecorders.map((node, i) => (
           <div className={cs('px2', 'border-box', 'col-12')} key={i}>{node}</div>
         ))}
@@ -37,14 +44,13 @@ export default function Card(props) {
 }
 
 Card.propTypes = {
-  id: PropTypes.string.isRequired,
   name: PropTypes.node.isRequired,
   options: PropTypes.shape({
-    heading: PropTypes.bool,
-    history: PropTypes.bool,
+    heading: PropTypes.bool.isRequired,
+    history: PropTypes.bool.isRequired,
     initialState: PropTypes.any.isRequired,
-    inspectData: PropTypes.bool,
-    stacked: PropTypes.bool,
+    inspectData: PropTypes.bool.isRequired,
+    stacked: PropTypes.bool.isRequired,
   }).isRequired,
   parts: PropTypes.arrayOf(PropTypes.oneOfType([
     PropTypes.node,

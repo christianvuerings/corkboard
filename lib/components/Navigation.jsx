@@ -1,3 +1,4 @@
+/* eslint react/no-unused-prop-types: 0 */
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import {
@@ -5,18 +6,22 @@ import {
     isInGroup,
     getPagesForTopLevelMenuTitle,
     getPageTitlesForTopLevelMenuTitle,
-  }
-  from '../../init.js';
+} from '../../index';
 
 function NavLink(props, context) {
-  const { activeClassName, inactiveClassName, ...otherProps } = props;
+  const { activeClassName, inactiveClassName, children, ...otherProps } = props;
   const isActive = context.router.isActive(props.to, true);
   const className = isActive ? activeClassName : inactiveClassName;
 
-  return <Link {...otherProps} className={[props.className, className].join(' ')} />;
+  return (
+    <Link {...otherProps} className={[props.className, className].join(' ')}>
+      {children}
+    </Link>
+  );
 }
 
 NavLink.propTypes = {
+  children: PropTypes.node,
   className: PropTypes.string.isRequired,
   activeClassName: PropTypes.string.isRequired,
   inactiveClassName: PropTypes.string.isRequired,
@@ -69,7 +74,6 @@ export default function Navigation(props, context) {
         {title}
       </NavLink>
     );
-    // console.log(navLinks);
 
     /* Create submenu if we are dealing with a group of items*/
     if (isInGroup(menuTitle)) {
@@ -98,7 +102,7 @@ export default function Navigation(props, context) {
         <select
           className="block col-12"
           defaultValue={location.pathname}
-          onChange={(e) => router.push(e.target.value)}
+          onChange={e => router.push(e.target.value)}
         >
           {nativeSelectOptions}
         </select>
