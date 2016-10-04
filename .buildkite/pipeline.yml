@@ -1,5 +1,5 @@
-steps:
-  - command: npm install && npm test
-    label: ":node:"
+steps:  
   - command: npm install && npm run lint
     label: ":eslint:"
+  - command: npm install && npm test
+    label: ":node:"
