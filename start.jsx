@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 import { Router, hashHistory, Route, IndexRoute } from 'react-router';
 import App from './lib/components/App';
 import Page from './lib/components/Page';
-import { getMenu } from './init';
+import { getMenu } from './index';
 
 const connect = (state, Component) => props => (
   <Component {...state} {...props} />
