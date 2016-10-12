@@ -1,5 +1,5 @@
-steps:  
-  - command: npm install && npm run lint
+steps:
+  - command: yarn && npm run lint
     label: ":eslint:"
-  - command: npm install && npm test
+  - command: yarn && yarn test
     label: ":node:"
