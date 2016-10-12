@@ -33,6 +33,11 @@ export default class StateRecorder extends Component {
 
   constructor(props) {
     super(props);
+    this.handlePrevious = this.unboundHandlePrevious.bind(this);
+    this.handleNext = this.unboundHandleNext.bind(this);
+    this.handleReset = this.unboundHandleReset.bind(this);
+    this.handleRewind = this.unboundHandleRewind.bind(this);
+    this.handleFastForward = this.unboundHandleFastForward.bind(this);
     this.state = {
       history: [this.props.initialState],
       idx: 0,
@@ -49,31 +54,31 @@ export default class StateRecorder extends Component {
     });
   }
 
-  handlePrevious = () => {
+  unboundHandlePrevious() {
     this.setState({
       idx: this.state.idx - 1,
     });
   }
 
-  handleNext = () => {
+  unboundHandleNext() {
     this.setState({
       idx: this.state.idx + 1,
     });
   }
 
-  handleReset = () => {
+  unboundHandleReset() {
     this.setState({
       history: this.state.history.slice(0, this.state.idx + 1),
     });
   }
 
-  handleRewind = () => {
+  unboundHandleRewind() {
     this.setState({
       idx: 0,
     });
   }
 
-  handleFastForward = () => {
+  unboundHandleFastForward() {
     this.setState({
       idx: this.state.history.length - 1,
     });
