@@ -1,5 +1,9 @@
 steps:
-  - command: yarn && npm run lint
+  - command: npm run lint
     label: ":eslint:"
-  - command: yarn && yarn test
+    env:
+      BUILDKITE_DOCKER_COMPOSE_CONTAINER: "app"
+  - command: yarn test
     label: ":node:"
+    env:
+      BUILDKITE_DOCKER_COMPOSE_CONTAINER: "app"
