@@ -1,2 +1,4 @@
 app:
   build: .
+  environment:
+    - CODECLIMATE_REPO_TOKEN=${CODECLIMATE_REPO_TOKEN}

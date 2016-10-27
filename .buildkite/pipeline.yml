@@ -3,7 +3,7 @@ steps:
     label: ":eslint:"
     env:
       BUILDKITE_DOCKER_COMPOSE_CONTAINER: "app"
-  - command: yarn test
-    label: ":node:"
+  - command: yarn test -- --coverage
+    label: ":jest:"
     env:
       BUILDKITE_DOCKER_COMPOSE_CONTAINER: "app"

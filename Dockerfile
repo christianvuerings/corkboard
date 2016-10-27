@@ -5,9 +5,8 @@ WORKDIR /app
 
 ENV PATH /app/node_modules/.bin:$PATH
 
-ADD package.json /app
-ADD yarn.lock /app
-
-RUN npm install --global yarn && yarn
-
 ADD . /app
+
+RUN npm install --global yarn --quiet && \
+    yarn && \
+    yarn global add codeclimate-test-reporter

@@ -1,7 +1,7 @@
 // @chrislloyd: This linter is disabled because initialState is polymorphic.
 /* eslint react/forbid-prop-types:0 */
 import React, { Component, PropTypes } from 'react';
-import atom from '../atom';
+import atom from './atom';
 import Icon from './Icon';
 import JsonData from './JsonData';
 
@@ -115,7 +115,7 @@ export default class StateRecorder extends Component {
   }
 
   render() {
-    const { fn, showState, showHistory } = this.props;
+    const { children, showState, showHistory } = this.props;
     const { history, idx } = this.state;
     const state = history[idx];
 
@@ -124,7 +124,7 @@ export default class StateRecorder extends Component {
 
     return (
       <div>
-        {fn(a)}
+        {children(a)}
         {showHistory ? this.renderHistoryControls() : null }
         {showState ? <JsonData data={state} /> : null }
       </div>
@@ -133,7 +133,7 @@ export default class StateRecorder extends Component {
 }
 
 StateRecorder.propTypes = {
-  fn: PropTypes.func.isRequired,
+  children: PropTypes.func.isRequired,
   initialState: PropTypes.any.isRequired,
   showHistory: PropTypes.bool.isRequired,
   showState: PropTypes.bool.isRequired,

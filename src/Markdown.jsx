@@ -14,7 +14,7 @@ export default function Markdown({ text }) {
 
   return (
     <div
-      className="sans-serif text-l dark-gray"
+      className="Markdown"
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );
@@ -23,3 +23,8 @@ export default function Markdown({ text }) {
 Markdown.propTypes = {
   text: PropTypes.string.isRequired,
 };
+
+export function buildMarkdown(str) {
+  const text = (typeof str === 'string') ? str : str.join('\n');
+  return <Markdown text={text} />;
+}
