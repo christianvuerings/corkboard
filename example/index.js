@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Corkboard, { group, card, cards, md } from 'corkboard/src/index';
+import Corkboard, { group, card, cards, md } from 'corkboard';
 
 function Button(props) {
   const style = {
