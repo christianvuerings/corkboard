@@ -1,6 +1,6 @@
 {
   "name": "corkboard",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "main": "./dist/index.js",
   "license": "MIT",
   "repository": "https://github.com/chrislloyd/corkboard",
